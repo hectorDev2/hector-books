@@ -1,0 +1,23 @@
+---
+import Title from "./Title.astro";
+interface Props {
+  title: string;
+  img: string;
+}
+
+const { title, img } = Astro.props;
+---
+
+<li>
+  <a
+    href="/clean-code"
+    class="hover:scale-105 inline-block transition-all hover:contrast-125 hover:shadow-2xl"
+  >
+    <Title title={title} />
+    <img
+      class="aspect-[389/500]"
+      src={`${img}`}
+      alt="Portada del libro Clean Code"
+    />
+  </a>
+</li>

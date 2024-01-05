@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { booksDB } from "../data/books";
+const { book = "clean Code" } = Astro.params;
+const bookInfo = booksDB.find((item) => item.id == book);
+
+console.log({ bookInfo });
+if (bookInfo == undefined) {
+  Astro.redirect("/404");
+}
+---
+
+<Layout title={`${book}`}>
+  <h1>{bookInfo?.title}</h1>
+  <img src={bookInfo?.img} alt={`image ${bookInfo?.title}`} />
+</Layout>
